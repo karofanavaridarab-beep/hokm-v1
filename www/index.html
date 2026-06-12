@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>بازی حکم</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top-bar">
+      <div class="title">بازی حکم</div>
+
+      <div class="score-board">
+        <div>امتیاز بازی تیم شما: <span id="gameScore0">0</span></div>
+        <div>امتیاز بازی تیم حریف: <span id="gameScore1">0</span></div>
+        <div>دست‌های تیم شما: <span id="trickScore0">0</span></div>
+        <div>دست‌های تیم حریف: <span id="trickScore1">0</span></div>
+      </div>
+
+      <button id="startBtn" class="primary-btn">شروع بازی</button>
+    </header>
+
+    <main class="game-area">
+      <section class="player-area top-player" id="player2Area">
+        <div class="player-label" id="player2Label">بالا</div>
+        <div class="opponent-hand" id="player2Hand"></div>
+        <div class="reveal-spot reveal-top" id="revealSpot2"></div>
+      </section>
+
+      <section class="middle-row">
+        <!-- چپ واقعی -->
+        <div class="player-area left-player" id="player1Area">
+          <div class="player-label" id="player1Label"> راست </div>
+          <div class="opponent-hand vertical" id="player1Hand"></div>
+          <div class="reveal-spot reveal-left" id="revealSpot1"></div>
+        </div>
+
+        <section class="table">
+          <div class="table-info">
+            <div>حاکم: <span id="hakemText">-</span></div>
+            <div>پخش‌کننده: <span id="dealerText">-</span></div>
+            <div>حکم: <span id="hokmText">-</span></div>
+            <div>نوبت: <span id="turnText">-</span></div>
+          </div>
+
+          <div class="deck-center" id="deckCenter">Deck</div>
+
+          <div class="table-cards" id="tableCards">
+            <div class="table-slot slot-0" id="tableSlot0"></div>
+            <div class="table-slot slot-1" id="tableSlot1"></div>
+            <div class="table-slot slot-2" id="tableSlot2"></div>
+            <div class="table-slot slot-3" id="tableSlot3"></div>
+          </div>
+
+          <div class="message" id="message">برای شروع، دکمه شروع بازی را بزنید.</div>
+        </section>
+
+        <!-- راست واقعی -->
+        <div class="player-area right-player" id="player3Area">
+          <div class="player-label" id="player3Label"> چپ </div>
+          <div class="opponent-hand vertical" id="player3Hand"></div>
+          <div class="reveal-spot reveal-right" id="revealSpot3"></div>
+        </div>
+      </section>
+
+      <section class="player-area bottom-player" id="player0Area">
+        <div class="player-label" id="player0Label">شما</div>
+        <div class="my-hand" id="player0Hand"></div>
+        <div class="reveal-spot reveal-bottom" id="revealSpot0"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="engine.js"></script>
+  <script src="ui.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

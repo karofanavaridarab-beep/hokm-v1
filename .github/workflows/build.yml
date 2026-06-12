@@ -1,0 +1,27 @@
+yamlnote_addویرایش با Canvas
+name: Build Cordova Android
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # سرور گیت‌هاب این نسخه رو داره
+      - name: Install Cordova
+        run: npm install -g cordova
+      - name: Install dependencies
+        run: npm install
+      - name: Add Android Platform
+        run: cordova platform add android
+      - name: Build APK
+        run: cordova build android --release
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app-apk
+          path: platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk
